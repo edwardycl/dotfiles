@@ -1,0 +1,8 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+[flavor]
+dark = "onedark"
+
+[manager]
+border_style = { fg = "darkgray" }
+hovered = { fg = "white", bg = "blue" }

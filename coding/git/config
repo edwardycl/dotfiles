@@ -1,0 +1,15 @@
+[core]
+  ignorecase = false
+[user]
+  email = youngchan1115@gmail.com
+  name = Youngchan Lee
+  signingKey = ~/.ssh/github.pub
+[pull]
+  ; ff = only
+  rebase = true
+[commit]
+  gpgSign = true
+[gpg]
+  format = ssh
+[includeIf "gitdir:~/workspace/hyperithm/"]
+  path = config.work

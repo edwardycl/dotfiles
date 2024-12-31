@@ -1,0 +1,9 @@
+[plugin]
+deps = [
+  { use = "Reledia/hexyl", rev = "39d3d4e" },
+  { use = "AnirudhG07/nbpreview", rev = "1d85745" },
+  { use = "dedukun/relative-motions", rev = "df97039" },
+]
+
+[flavor]
+deps = [{ use = "BennyOe/onedark", rev = "fa1da70" }]

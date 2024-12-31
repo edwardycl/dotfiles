@@ -1,0 +1,16 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "ohmyzsh"]
+	path = zsh/omz
+	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "zsh-autosuggestions"]
+	path = zsh/omz-custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh-syntax-highlighting"]
+	path = zsh/omz-custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "powerlevel10k"]
+	path = zsh/omz-custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k

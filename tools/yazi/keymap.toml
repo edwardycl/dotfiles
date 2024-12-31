@@ -1,0 +1,45 @@
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[manager]
+prepend_keymap = [
+  { on = [
+    "<C-u>",
+  ], run = "seek -5", desc = "Seek up 5 units in the preview" },
+  { on = [
+    "<C-d>",
+  ], run = "seek 5", desc = "Seek down 5 units in the preview" },
+  { on = [
+    "g",
+    "w",
+  ], run = "cd ~/workspace", desc = "Goto ~/workspace" },
+  { on = [
+    "1",
+  ], run = "plugin relative-motions --args=1", desc = "Move in relative steps" },
+  { on = [
+    "2",
+  ], run = "plugin relative-motions --args=2", desc = "Move in relative steps" },
+  { on = [
+    "3",
+  ], run = "plugin relative-motions --args=3", desc = "Move in relative steps" },
+  { on = [
+    "4",
+  ], run = "plugin relative-motions --args=4", desc = "Move in relative steps" },
+  { on = [
+    "5",
+  ], run = "plugin relative-motions --args=5", desc = "Move in relative steps" },
+  { on = [
+    "6",
+  ], run = "plugin relative-motions --args=6", desc = "Move in relative steps" },
+  { on = [
+    "7",
+  ], run = "plugin relative-motions --args=7", desc = "Move in relative steps" },
+  { on = [
+    "8",
+  ], run = "plugin relative-motions --args=8", desc = "Move in relative steps" },
+  { on = [
+    "9",
+  ], run = "plugin relative-motions --args=9", desc = "Move in relative steps" },
+]
+
+[input]
+prepend_keymap = [{ on = ["<C-c>"], run = "close", desc = "Cancel input" }]

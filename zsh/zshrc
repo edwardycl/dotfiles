@@ -1,0 +1,100 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+add_to_path() {
+    for dir in "$@"; do
+        case ":${PATH}:" in
+            *:"$dir":*) ;;
+            *) export PATH="$dir:$PATH" ;;
+        esac
+    done
+}
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+add_to_path "$HOME/bin" "$HOME/.local/bin" "/usr/local/bin"
+
+# Oh My Zsh settings
+# https://github.com/ohmyzsh/ohmyzsh/wiki/Settings
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
+
+plugins=(
+  command-not-found
+  common-aliases
+  git
+  rust
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+set -o vi
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+# Aliases
+alias vim="nvim"
+alias cat="bat"
+alias man="batman"
+alias catrg="batgrep"
+
+alias l="eza -hF --icons --group-directories-first"
+alias ll="eza -lhF --icons --group-directories-first"
+alias la="eza -ahF --icons --group-directories-first"
+alias lla="eza -lahF --icons --group-directories-first"
+alias lal="eza -lahF --icons --group-directories-first"
+
+# powerlevel10k
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# cargo
+. "$HOME/.cargo/env"
+
+# n
+export N_PREFIX=$HOME/.n
+add_to_path "$N_PREFIX/bin"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && add_to_path "$PYENV_ROOT/bin"
+eval "$(pyenv init - zsh)"
+
+# foundry
+add_to_path "$HOME/.foundry/bin"
+
+# solana
+add_to_path "$HOME/.local/share/solana/install/active_release/bin"
+add_to_path "$HOME/.avm/bin"
+
