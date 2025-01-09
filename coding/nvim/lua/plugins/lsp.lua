@@ -60,6 +60,7 @@ return {
         typescript = { "prettier", "biome", stop_after_first = true },
         javascriptreact = { "prettier", "biome", stop_after_first = true },
         typescriptreact = { "prettier", "biome", stop_after_first = true },
+        rust = { "rustfmt", lsp_format = "fallback" },
       },
       formatters = {
         forge_fmt = {
@@ -78,46 +79,6 @@ return {
       },
       linters_by_ft = {
         -- solidity = { "solhint" },
-      },
-    },
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    opts = {
-      server = {
-        on_attach = function(_, bufnr)
-          vim.keymap.set("n", "J", function()
-            vim.cmd.RustLsp("joinLines")
-          end, { desc = "Join Lines", buffer = bufnr })
-        end,
-        default_settings = {
-          ["rust-analyzer"] = {
-            check = {
-              command = "clippy",
-            },
-            cargo = {
-              buildScripts = {
-                enable = true,
-              },
-            },
-            rustfmt = {
-              extraArgs = { "+nightly" },
-            },
-            procMacro = {
-              enable = true,
-            },
-            rustc = {
-              source = "discover",
-            },
-            workspace = {
-              symbol = {
-                search = {
-                  scope = "workspace_and_dependencies",
-                },
-              },
-            },
-          },
-        },
       },
     },
   },

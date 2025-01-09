@@ -108,7 +108,6 @@ return {
     branch = "v3.x",
     dependencies = {
       -- "3rd/image.nvim",
-      "nvim-tree/nvim-web-devicons",
     },
     opts = {
       auto_clean_after_session_restore = true,
