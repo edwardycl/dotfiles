@@ -31,5 +31,6 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [nvim --headless "+Lazy! sync" +qa]
-    - [ya pack -i]
+    - [nvim --headless "+Lazy! sync" +qa, Installing LazyVim plugins]
+    - [ya pack -i, Installing yazi packages]
+    # TODO: install using Brewfile
