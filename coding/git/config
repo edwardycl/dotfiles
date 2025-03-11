@@ -1,15 +1,62 @@
 [core]
-  ignorecase = false
-[user]
-  email = youngchan1115@gmail.com
-  name = Youngchan Lee
-  signingKey = ~/.ssh/github.pub
-[pull]
-  ; ff = only
-  rebase = true
+ignorecase = false
+pager = bat
+[column]
+ui = auto
+[branch]
+sort = -committerdate
+[tag]
+sort = version:refname
+[diff]
+algorithm = histogram
+colorMoved = plain
+mnemonicPrefix = true
+renames = true
+[log]
+date = iso
+
+[init]
+defaultBranch = main
+
+[fetch]
+prune = true
+pruneTags = true
+all = true
+
 [commit]
-  gpgSign = true
+verbose = true
+
+[push]
+default = simple
+autoSetupRemote = true
+followTags = true
+[pull]
+ff = only
+rebase = true
+
+[merge]
+conflictStyle = zdiff3
+[rebase]
+autosquash = true
+autoStash = true
+updateRefs = true
+[rerere]
+enabled = true
+autoUpdate = true
+
+[help]
+autocorrect = prompt
+
+[user]
+email = youngchan1115@gmail.com
+name = Youngchan Lee
+signingKey = ~/.ssh/github.pub
 [gpg]
-  format = ssh
+format = ssh
+[commit]
+gpgSign = true
+[tag]
+gpgSign = true
+
 [includeIf "gitdir:~/workspace/hyperithm/"]
-  path = config.work
+path = config.work
