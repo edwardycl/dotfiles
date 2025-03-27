@@ -43,7 +43,7 @@ source $ZSH/oh-my-zsh.sh
 set -o vi
 export LANG=en_US.UTF-8
 # TODO: this is for building norg lsp
-export CC=/opt/homebrew/bin/gcc-14
+# export CC=/opt/homebrew/bin/gcc-14
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -104,3 +104,15 @@ add_to_path "$HOME/.foundry/bin"
 add_to_path "$HOME/.local/share/solana/install/active_release/bin"
 add_to_path "$HOME/.avm/bin"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+add_to_path "$BUN_INSTALL/bin"
+
+# windsurf
+add_to_path "$HOME/.codeium/windsurf/bin"
+
+# gcloud
+add_to_path "$HOME/google-cloud-sdk/bin"
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi

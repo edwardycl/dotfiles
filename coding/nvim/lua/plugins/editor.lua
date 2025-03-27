@@ -1,28 +1,4 @@
-local fzf_actions = require("fzf-lua").actions
-
 return {
-  {
-    "ibhagwan/fzf-lua",
-    optional = true,
-    opts = {
-      files = {
-        actions = {
-          ["alt-i"] = false,
-          ["alt-h"] = false,
-          ["ctrl-i"] = { fzf_actions.toggle_ignore },
-          ["ctrl-h"] = { fzf_actions.toggle_hidden },
-        },
-      },
-      grep = {
-        actions = {
-          ["alt-i"] = false,
-          ["alt-h"] = false,
-          ["ctrl-i"] = { fzf_actions.toggle_ignore },
-          ["ctrl-h"] = { fzf_actions.toggle_hidden },
-        },
-      },
-    },
-  },
   -- TODO: change keybindings
   {
     "folke/flash.nvim",
